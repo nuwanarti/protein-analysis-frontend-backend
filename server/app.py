@@ -172,7 +172,6 @@ def items():
 
     return jsonify([{'title': 'A'}, {'title': 'B'}])
 
-
 ##
 # View route
 ##

@@ -1,0 +1,26 @@
+
+ .... Calculation in progress ....
+Time (sec) to construct adj matrix:  0.03516 
+
+ ----- Global parameters -----
+Number of nodes (CA atoms): 231 
+Calculated Node degree: 8.05 
+Node degree from data base: 7.99 
+Standard deviation from data base: 0.309 
+Z-score: 0.2 
+
+--- Count poor and long CA distances ---
+Poor CA edges (total/percentage):  9 / 3.91 %
+Long CA edges (total/percentage):  6 / 2.61 %
+
+--- Poor subgraphs ( Number of nodes >= 4 ) ---
+ Max. subgraph has  3  nodes.
+ List of subgraphs:
+! List of POOR subgraphs is empty !
+
+--- Long subgraphs ( Number of nodes >= 4 ) ---
+ Max. subgraph has  3  nodes.
+ List of subgraphs:
+! List of LONG subgraphs is empty !
+
+ .... The End ....

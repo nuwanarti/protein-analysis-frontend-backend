@@ -5,8 +5,8 @@
 To install the dependencies, you can run:
 
 ```bash
-git clone https://github.com/YaleDHLab/flask-react-boilerplate
-cd flask-react-boilerplate
+git clone https://github.com/nuwanarti/protein-analysis-frontend-backend.git
+cd protein-analysis-frontend-backend
 npm install --no-optional
 pip install -r requirements.txt
 ```

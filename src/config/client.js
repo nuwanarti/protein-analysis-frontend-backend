@@ -1,7 +1,7 @@
 let config = {
   api: {
     protocol: 'http',
-    host: 'localhost',
+    host: 'taru.iam.upr.si',
     port: 7082,
     prefix: 'api'
   },

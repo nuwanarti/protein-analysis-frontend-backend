@@ -15,11 +15,14 @@ class FileUploader extends React.Component {
     }
 
     onFormSubmit(e) {
+
         e.preventDefault() // Stop form submit
+        this.props.setUploadingStatus(true)
         this.fileUpload(this.state.file1, this.state.file2).then((response) => {
 
             this.props.setOutput(response.data);
             console.log(response.data);
+            // this.props.setUploadingStatus(false)
         })
     }
 
@@ -28,7 +31,7 @@ class FileUploader extends React.Component {
     }
 
     fileUpload(file1, file2) {
-        const url = 'http://localhost:7082/file-upload';
+        const url = 'http://taru.iam.upr.si:7082/file-upload';
         const formData = new FormData();
         formData.append('file1', file1)
         formData.append('file2', file2)

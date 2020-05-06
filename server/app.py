@@ -14,13 +14,14 @@ import json
 
 app = Flask(__name__, static_folder='../build')
 CORS(app)
-
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 ##
 # API routes
 ##
 
-app.secret_key = 'secret key'
-app.config['UPLOAD_FOLDER'] = '/home/rt/Documents/drJure/Protein-Validation-and-theory-of-graphs/uploads'
+app.secret_key = 'h2*#c!um!eCuBX !^*&()(*^%'
+# app.config['UPLOAD_FOLDER'] = '/home/rt/Documents/drJure/Protein-Validation-and-theory-of-graphs/uploads'
+app.config['UPLOAD_FOLDER'] = '/disk2/proteinServer/Protein-Validation-and-theory-of-graphs/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = set([
@@ -58,13 +59,13 @@ def calZscore():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'uploaded.pdb'))
         resp = jsonify({'message': 'File successfully uploaded'})
         resp.status_code = 201
-        print("file uploaded")
+        #print("file uploaded")
         # req_data = request.get_json(force=True)
         # formId = req_data['formId']
         ex = json.loads(request.form.get('formId'))
-        print ex
-        print("form id printed ")
-        output1 = os.system('/usr/bin/Rscript /home/rt/Documents/drJure/Protein-Validation-and-theory-of-graphs/ProtModAna1.r>newFile1.txt')
+        #print ex
+        #print("form id printed ")
+        output1 = os.system('/usr/bin/Rscript /disk2/proteinServer/Protein-Validation-and-theory-of-graphs/ProtModAna1.r>newFile1.txt')
 
         f = open('newFile1.txt','r').read().split('\n')
 
@@ -72,7 +73,7 @@ def calZscore():
         zScore = ''
         for i in f:
           line += i + '\r\n'
-          print i
+          #print i
           if 'Z-score' in i:
               zScore = i
 
@@ -114,27 +115,27 @@ def upload_file():
         file2.save(os.path.join(app.config['UPLOAD_FOLDER'], 'uploaded2.pdb'))
         resp = jsonify({'message': 'File successfully uploaded'})
         resp.status_code = 201
-        print("file uploaded")
+        #print("file uploaded")
         # req_data = request.get_json(force=True)
         # formId = req_data['formId']
         ex = json.loads(request.form.get('formId'))
-        print ex
-        print("form id printed ")
-        output1 = os.system('/usr/bin/Rscript /home/rt/Documents/drJure/Protein-Validation-and-theory-of-graphs/ProtModAna1.r>newFile1.txt')
-        output1 = os.system('/usr/bin/Rscript /home/rt/Documents/drJure/Protein-Validation-and-theory-of-graphs/ProtModAna2.r>newFile2.txt')
+        #print ex
+        #print("form id printed ")
+        output1 = os.system('/usr/bin/Rscript /disk2/proteinServer/Protein-Validation-and-theory-of-graphs/ProtModAna1.r>newFile1.txt')
+        output1 = os.system('/usr/bin/Rscript /disk2/proteinServer/Protein-Validation-and-theory-of-graphs/ProtModAna2.r>newFile2.txt')
 
-        output = os.system('/usr/bin/Rscript /home/rt/Documents/drJure/flask-react-boilerplate/server/myRscript2.r>newFile.txt')
+        output = os.system('/usr/bin/Rscript /disk2/proteinServer/server/myRscript2.r>newFile.txt')
         # f = open('newFile.txt', 'r').splitlines()
         f = open('newFile1.txt','r').read().split('\n')
         f2 = open('newFile2.txt','r').read().split('\n')
 
-        outPdb1 = open('/home/rt/Documents/drJure/flask-react-boilerplate/outputPDB/outputPDB1.pdb', 'r')
+        outPdb1 = open('/disk2/proteinServer/outputPDB/outputPDB1.pdb', 'r')
 
         data1 = ""
         lines = outPdb1.readlines()
         for line in lines:
             data1 = data1 + line.strip() + "\r"
-        outPdb2 = open('/home/rt/Documents/drJure/flask-react-boilerplate/outputPDB/outputPDB2.pdb', 'r')
+        outPdb2 = open('/disk2/proteinServer/outputPDB/outputPDB2.pdb', 'r')
         data2 = ""
         lines = outPdb2.readlines()
         for line in lines:

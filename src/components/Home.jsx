@@ -5,8 +5,8 @@ import GraphView from './GraphView'
 import ZScore from './ZScore'
 
 const panes = [
-  { menuItem: 'Graph View', render: () => <Tab.Pane><GraphView /></Tab.Pane> },
   { menuItem: 'Z-Score', render: () => <Tab.Pane><ZScore /></Tab.Pane> },
+  { menuItem: 'Graph View', render: () => <Tab.Pane><GraphView /></Tab.Pane> },
   // { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
 ]
 

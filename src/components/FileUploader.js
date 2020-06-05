@@ -1,6 +1,6 @@
 import React from 'react'
 import axios, { post } from 'axios';
-import { Form, Input, Button } from 'semantic-ui-react'
+import { Form, Input, Button, Header } from 'semantic-ui-react'
 class FileUploader extends React.Component {
 
     constructor(props) {
@@ -31,7 +31,8 @@ class FileUploader extends React.Component {
     }
 
     fileUpload(file1, file2) {
-        const url = 'http://taru.iam.upr.si:7082/file-upload';
+        const url = 'https://taru.iam.upr.si:7082/file-upload';
+        // const url = 'http://ec2-52-204-51-163.compute-1.amazonaws.com:4000/file-upload'
         const formData = new FormData();
         formData.append('file1', file1)
         formData.append('file2', file2)
@@ -48,7 +49,7 @@ class FileUploader extends React.Component {
     render() {
         return (
             <Form onSubmit={this.onFormSubmit} style={{ padding: '10px' }}>
-                <h1>File Upload</h1>
+                <Header as="h2"> Upload the Files </Header>
                 <Input type="file" name="file1" onChange={this.onChange} />
                 <Input style={{ marginLeft: '10px'}} type="file" name="file2" onChange={this.onChange} />
                 <Button style={{ marginLeft: '10px'}} color='teal' type="submit">Upload</Button>
